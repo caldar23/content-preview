@@ -3,7 +3,7 @@
 Plugin Name: Content Preview
 Plugin URI: http://www.clonemywebsite.com/
 Description: Add a content preview to a CloneMyWebsite Theme using Pilotpress [Required].
-Version: 1.3.0
+Version: 1.3.1
 Author: Andrew Myers / CloneMyWebsite.com
 Author URI: http://www.clonemywebsite.com/
 
@@ -107,33 +107,6 @@ function cmwcp_output( $content ) {
 
 	if ( is_single() && !empty($post_levels) && !cmwcp_pilotpress_user_access()) {
 //	if ( is_single() && !empty($post_levels)) { // this line is useful if you want to always show the warnings (like in development...)
-	
-		echo "user levels <br>";
-		$user_levels = $_SESSION["user_levels"];
-		var_dump($user_levels);
-		echo '<br><br>';
-		
-		echo "post levels <br>";
-		$post_levels = get_post_meta($id, "_pilotpress_level");
-		var_dump($post_levels);
-		
-		echo '<br><br>';
-				
-				$post_access = "false";
-		
-		foreach ($post_levels as $post_levels) {
-				
-				if ( !empty($post_levels) && !empty($user_levels) && in_array( $post_levels, $user_levels ) ) {
-				
-				$post_access = "TRUE" ;
-				
-				}
-				
-		}
-		echo $post_access;
-		
-		echo '<br><br>';
-		
 		
 		global $more;    // Declare global $more (before the loop).
 		$more = 0;  
